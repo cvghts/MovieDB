@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const movieDB = {
         movies: [
             "Логан",
-            "Лига справедливости",
-            "Ла-ла лэнд",
-            "Одержимость",
-            "Скотт Пилигрим против..."
+            "Ліга справедливості",
+            "Ла-ла ленд",
+            "Одержимість",
+            "Скотт Пілігрим проти..."
         ]
     };
     
@@ -20,31 +20,31 @@ document.addEventListener('DOMContentLoaded', () => {
           checkbox = addForm.querySelector('[type="checkbox"]');
 
     
-    //1)после заполнения формы
+    //1)після заповнення форми
     addForm.addEventListener('submit', (event) => {
-        //Страница не должна перезагружаться
+        //Сторінка не повинна перезавантажуватись
         event.preventDefault();
 
         let newFilm = addInput.value;
         const favorite = checkbox.checked;
 
         if(newFilm) {
-            //2) Если название фильма больше, чем 21 символ - обрезать его и добавить три точки
+            //2) Якщо назва фільму більше, ніж 21 символ - обрізати його та додати три крапки
             if(newFilm.length > 21) {
                 newFilm = `${newFilm.substring(0, 22)}...`
             }
 
-            /*4) Если в форме стоит галочка "Сделать любимым" - в консоль вывести сообщение: 
-            "Добавляем любимый фильм" */
+            /*4) Якщо у формі стоїть галочка "Зробити улюбленим" - у консоль вивести повідомлення:
+            "Додаємо улюблений фільм" */
             if(favorite) {
                 console.log("Додаємо улюблений фільм");
             }
 
             movieDB.movies.push(newFilm);
-            //5) Фильмы должны быть отсортированы по алфавиту
+            //5) Фільми мають бути відсортовані за алфавітом
             sortArr(movieDB.movies);
 
-            //новый фильм добавляется в список
+            //новий фільм додається до списку
             createMovieList(movieDB.movies, movieList);
         }
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
 
-        //3) При клике на мусорную корзину - элемент будет удаляться из списка
+        //3) При натисканні на сміттєвий кошик - елемент видалятиметься зі списку
         document.querySelectorAll('.delete').forEach((btn, i) => {
             btn.addEventListener('click', () => {
                 btn.parentElement.remove();
